@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Size Convertor</title>
+  </head>
+  <body>
+    <label for="text">Amount: </label>
+    <input type="text" id="text" />
+    <br />
+    <br />
+    <label for="text">from:</label>
+    <select id="from">
+      <option value="GB">GB</option>
+      <option value="b">Bytes</option>
+    </select>
+    <br />
+    <br />
+    <label for="text">to:</label>
+    <select id="to">
+      <option value="b">Bytes</option>
+      <option value="GB">GB</option>
+    </select>
+    <br />
+    <br />
+    <button onclick="convert()">Convert</button>
+    <br /><br />
+    <p id="ans"></p>
+    <script>
+      function convert() {
+        let val = document.getElementById("text").value;
+        if (isNaN(parseInt(val))) {
+          document.getElementById("ans").innerText =
+            "Enter a amount to convert";
+          return;
+        }
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        if (from === to) nVal = val;
+        else if (from === "GB") nVal = val * 1000000000;
+        else nVal = val / 1000000;
+        document.getElementById(
+          "ans"
+        ).innerText = `${val} ${from} = ${nVal} ${to}`;
+      }
+    </script>
+  </body>
+</html>
